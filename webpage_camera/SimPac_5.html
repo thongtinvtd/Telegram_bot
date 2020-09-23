@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0045)http://192.168.3.105/simpac/auto/c3k_auto.plc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>SimPac</title>
+
+
+	 <script language="javascript" type="text/javascript" src="./SimPac_new parameter_files/jquery.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script><style></style>
+	 <script language="javascript" type="text/javascript" src="./SimPac_new parameter_files/language.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+	 <script language="javascript" type="text/javascript" src="./SimPac_new parameter_files/header.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+
+ <link rel="stylesheet" type="text/css" href="./SimPac_new parameter_files/c3000style_pda.css" media="handheld">
+ <link rel="stylesheet" type="text/css" href="./SimPac_new parameter_files/c3000style.css" media="screen">
+ 
+<script async="" src="./SimPac_new parameter_files/adblocker-chromeglobalinjectjs.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script></head>
+
+<body class="bodyTables"><div id="header" wfd-id="33"><table class="header">
+	<tbody><tr class="HeadLine">
+		<td width="60px">
+		<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc" target="_parent"> <img src="./SimPac_new parameter_files/home.gif" title="home" name="home" width="60" height="60" border="0"></a>
+		</td>
+		<td><img src="./SimPac_new parameter_files/simpac_web.gif" title="SimPac"></td>	
+		<td>
+			<div id="EquipmNo" wfd-id="36">58566186790010</div>
+			<div id="IpAdr" wfd-id="35">192.168.3.105</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="ChbMode" style="font-weight:bold" wfd-id="34"> </div>
+		</td>
+		<td>
+			<img id="StatImg" src="./SimPac_new parameter_files/on_00.gif">
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc"><img id="MsImg" src="./SimPac_new parameter_files/on_00.gif" border="0"></a>
+		</td>
+		<td> 
+			<a href="http://192.168.3.105/simpac/auto/c3k_auto.plc#"><img id="lang" name="3" src="./SimPac_new parameter_files/FlagGermany.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/auto/c3k_auto.plc#"><img id="lang" name="1" src="./SimPac_new parameter_files/FlagUSAUK.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/auto/c3k_auto.plc#"><img id="lang" name="8" src="./SimPac_new parameter_files/FlagChina.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/auto/c3k_auto.plc#"><img id="lang" name="2" src="./SimPac_new parameter_files/FlagFrench.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/auto/c3k_auto.plc#"><img id="lang" name="9" src="./SimPac_new parameter_files/FlagSuedkorea.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/auto/c3k_auto.plc#"><img id="lang" name="7" src="./SimPac_new parameter_files/FlagRussland.jpeg" width="25" height="14" border="0"></a>
+		</td>
+	</tr>
+</tbody></table>
+<br></div>
+
+<script type="text/javascript">
+
+$('#header').load('../js/header.html', function() {
+	getHeaderInfo();
+	getUpdData();
+	$("img[id='lang']").click(function() {
+		changeLanguage($(this).attr("name"));
+	});
+});
+
+
+
+function convSec2HMS(secondsVar)
+{
+	var seconds;
+	var h;
+	var m;
+	var s;
+	var timeStr;
+	
+	seconds = parseInt(getHMIValue(secondsVar));
+	
+	h = parseInt(seconds / 3600);
+	m = seconds - h * 3600;
+	m = parseInt(m /60);
+	s = parseInt(seconds - h * 3600 - m * 60);
+	
+	timeStr = h + "h " + m + "m " + s + "s";
+	
+	return (timeStr);
+}
+
+function getPrgStatus()
+{
+	var temp;
+	var PGStat;
+	var statusStr;
+	
+	temp = getHMIValue("HMI.Prog.Status");
+	PGStat = parseInt(temp.substr(3), 16);
+	
+	statusStr = " ";
+	if (PGStat & 1)
+	{
+		statusStr = "running";
+	}
+	if (PGStat & 2)
+	{
+		statusStr = "paused";
+	}
+	if (PGStat & 4)
+	{
+		statusStr = "waiting";
+	}
+	if (PGStat & 16)
+	{
+		statusStr = "waiting for start"
+	}
+
+	return (statusStr);
+}
+
+function getUpdData()
+{
+	var temp;
+	var timeSec;
+	var writeAcs;
+	
+	getChbInfo();
+
+	contentloader("HMI.Prog.ProfileNo", "val_profilno");
+	contentloader("HMI.Prog.ProfileName", "val_profilename");
+	contentloader("HMI.Prog.ProfileCycles", "val_profilecycles");
+	contentloader("HMI.Prog.ActiveCycles", "val_activecycles");
+	contentloader("HMI.Prog.TotalLoops", "val_totalloops");
+	contentloader("HMI.Prog.ActLoops", "val_actloops");
+	contentloader("HMI.Prog.Segment", "val_segment");
+	
+	timeSec = convSec2HMS("HMI.Prog.ActiveTime");
+	$("#val_activetime").text(timeSec);
+	
+	timeSec = convSec2HMS("HMI.Prog.ProfileTime");
+	$("#val_profiletime").text(timeSec);
+	
+	timeSec = convSec2HMS("HMI.Prog.TotalTime");
+	$("#val_totaltime").text(timeSec);
+
+	contentloader("HMI.Prog.SegmentType", "val_segmenttype");
+	
+	timeSec = convSec2HMS("HMI.Prog.SegmentTotalTime");
+	$("#val_segmenttotaltime").text(timeSec);
+				
+				timeSec = convSec2HMS("HMI.Prog.SegmentRemainTime");
+	$("#val_segmentremaintime").text(timeSec);
+	
+	temp = getPrgStatus();
+	$("#val_status").text(temp);
+	
+	
+	temp = getHMIValue("HMI.ChbMode.EnWriteAcs");
+	writeAcs = parseInt(temp.substr(3), 16);
+		
+	if (writeAcs & 4)
+		document.formOpen.elements.tr_open.disabled = false;
+	else
+		document.formOpen.elements.tr_open.disabled = true;
+	
+	
+	setTimeout(getUpdData, 5000);
+}
+
+
+
+
+$(document).ready(function()
+{
+var langCode =1
+
+	changeLanguage(langCode); 
+
+	$("input[type='button']").click(function() {
+		if (langCode == 3)
+			window.location.href="../autostart/c3k_prgCtrl_de.plc";
+		else
+			window.location.href="../autostart/c3k_prgCtrl_en.plc";
+	});
+})
+
+
+</script>
+
+
+
+
+<br>
+<h1><div id="tr_automode" wfd-id="32">Automatic Mode</div></h1>
+<br>
+<table class="c3kTables" border="1" cellpadding="2" cellspacing="0" width="100%">
+	<tbody><tr class="col_header">
+		<th align="left"><div id="tr_name" wfd-id="31">Name</div></th>
+		<th align="left"></th>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_profilno" wfd-id="30">Profile No.</div></td>
+		<td align="left"><div id="val_profilno" wfd-id="29">0</div></td>
+	</tr>
+	<tr class="col_even">
+		<td align="left"><div id="tr_profilename" wfd-id="28">Profile Name</div></td>
+		<td align="left"><div id="val_profilename" wfd-id="27"></div></td>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_profilecycles" wfd-id="26">Profile Cycles</div></td>
+		<td align="left"><div id="val_profilecycles" wfd-id="25">0</div></td>
+	</tr>
+	<tr class="col_even">
+		<td align="left"><div id="tr_activecycles" wfd-id="24">Active Cycles</div></td>
+		<td align="left"><div id="val_activecycles" wfd-id="23">0</div></td>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_totalloops" wfd-id="22">Total Loops</div></td>
+		<td align="left"><div id="val_totalloops" wfd-id="21">0</div></td>
+	</tr>
+	<tr class="col_even">
+		<td align="left"><div id="tr_actloops" wfd-id="20">Act Loops</div></td>
+		<td align="left"><div id="val_actloops" wfd-id="19">0</div></td>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_segment" wfd-id="18">Segment</div></td>
+		<td align="left"><div id="val_segment" wfd-id="17">0</div></td>
+	</tr>
+	<tr class="col_even">
+		<td align="left"><div id="tr_activetime" wfd-id="16">Active Time</div></td>
+		<td align="left"><div id="val_activetime" wfd-id="15">0h 0m 0s</div></td>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_profiletime" wfd-id="14">Profile Time</div></td>
+		<td align="left"><div id="val_profiletime" wfd-id="13">0h 0m 0s</div></td>
+	</tr>
+	<tr class="col_even">
+		<td align="left"><div id="tr_totaltime" wfd-id="12">Total Time</div></td>
+		<td align="left"><div id="val_totaltime" wfd-id="11">0h 0m 0s</div></td>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_segmenttype" wfd-id="10">Segment Type</div></td>
+		<td align="left"><div id="val_segmenttype" wfd-id="9">0</div></td>
+	</tr>
+	<tr class="col_even">
+		<td align="left"><div id="tr_segmenttotaltime" wfd-id="8">Segment Total Time</div></td>
+		<td align="left"><div id="val_segmenttotaltime" wfd-id="7">0h 0m 0s</div></td>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_segmentremaintime" wfd-id="6">Segment Remain Time</div></td>
+		<td align="left"><div id="val_segmentremaintime" wfd-id="5">0h 0m 0s</div></td>
+	</tr>
+	<tr class="col_even">
+		<td align="left"><div id="tr_status" wfd-id="4">Status</div></td>
+		<td><div id="val_status" wfd-id="3"> </div></td>
+	</tr>
+	<tr class="col_odd">
+		<td align="left"><div id="tr_prgstartstop" wfd-id="2">Start/Stop Programs</div></td>
+		<td align="left" height="60">
+			<form name="formOpen" wfd-id="1">
+				<input type="button" name="tr_open" value="Open" disabled="" wfd-id="37">
+			</form>
+		</td>
+	</tr>
+</tbody></table>
+
+<div class="kpm_LTR notranslate" translate="no" id="kpm-root" wfd-id="0"></div></body></html>

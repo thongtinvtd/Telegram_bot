@@ -1,0 +1,820 @@
+﻿function getLanguageResources()
+{
+	var de = new Array();
+	var en = new Array();
+	var cn = new Array();
+	var fr = new Array();
+	var kr = new Array();
+	var ru = new Array();
+
+	
+	// Allgemein
+	de['tr_reload'] = "Drücke F5 zum Aktualisieren der Seite";
+	en['tr_reload'] = "Press F5 for reloading the page";
+	cn['tr_reload'] = "请按F5以重新载入此页";
+	fr['tr_reload'] = "Presse F5 pour recharger la page";
+	kr['tr_reload'] = "페이지를 다시 열기 위해 F5를 누르세요";
+	ru['tr_reload'] = "Нажмите F5, чтобы загрузить страницу заново";
+
+	de['tr_pleasewait'] = "Bitte warten";
+	en['tr_pleasewait'] = "Please wait";
+	cn['tr_pleasewait'] = "请稍等";
+	fr['tr_pleasewait'] = "S'il vous plaît attendre";
+	kr['tr_pleasewait'] = "Please wait";
+	ru['tr_pleasewait'] = "Please wait";
+	
+	de['tr_goback'] = "Zurück";
+	en['tr_goback'] = "Back";
+	cn['tr_goback'] = "后退";
+	fr['tr_goback'] = "Retour";
+	kr['tr_goback'] = "Back";
+	ru['tr_goback'] = "Back";
+
+	de['tr_apply'] = "Übernehmen";
+	en['tr_apply'] = "Apply";
+	cn['tr_apply'] = "应用";
+	fr['tr_apply'] = "Appliquer";
+	kr['tr_apply'] = "Apply";
+	ru['tr_apply'] = "Apply";
+
+	de['tr_none'] = "keine";
+	en['tr_none'] = "none";
+	cn['tr_none'] = "none";
+	fr['tr_none'] = "aucun";
+	kr['tr_none'] = "none";
+	ru['tr_none'] = "никакой";
+
+	
+	// Typenschild
+	de['tr_typeplate'] = "Elektronisches Typenschild";
+	en['tr_typeplate'] = "Electronic type label";
+	cn['tr_typeplate'] = "电子铭牌";
+	fr['tr_typeplate'] = "Electronique de la plaque";
+	kr['tr_typeplate'] = "전자 코드이름표";
+	ru['tr_typeplate'] = "Электронный ярлык";
+
+	de['tr_type'] = "Typ";
+	en['tr_type'] = "Type";
+	cn['tr_type'] = "型号";
+	fr['tr_type'] = "Type";
+	kr['tr_type'] = "모델명";
+	ru['tr_type'] = "Тип";
+
+	de['tr_constr_year'] = "Baujahr";
+	en['tr_constr_year'] = "Year of Construction";
+	cn['tr_constr_year'] = "创建年份";
+	fr['tr_constr_year'] = "Année de construction";
+	kr['tr_constr_year'] = "생산년도";
+	ru['tr_constr_year'] = "Год выпуска";
+
+	de['tr_equipno'] = "Seriennummer";
+	en['tr_equipno'] = "Equipment No.";
+	cn['tr_equipno'] = "设备号";
+	fr['tr_equipno'] = "Numéro de série";
+	kr['tr_equipno'] = "장비고유번호";
+	ru['tr_equipno'] = "Серийный номер";
+
+	de['tr_orderno'] = "Auftragsnummer";
+	en['tr_orderno'] = "Order No.";
+	cn['tr_orderno'] = "订单号";
+	fr['tr_orderno'] = "Numéro de commande";
+	kr['tr_orderno'] = "주문번호";
+	ru['tr_orderno'] = "номер заказа";
+
+	de['tr_plclibver'] = "PLC Lib Version";
+	en['tr_plclibver'] = "PLC Lib Version";
+	cn['tr_plclibver'] = "PLC Lib 版本";
+	fr['tr_plclibver'] = "PLC Lib Version";
+	kr['tr_plclibver'] = "PLC Lib 버젼";
+	ru['tr_plclibver'] = "Версия PLC Lib";
+	
+	de['tr_rtssystem'] = "RTS-System";
+	en['tr_rtssystem'] = "RTS-System";
+	cn['tr_rtssystem'] = "RTS-系统";
+	fr['tr_rtssystem'] = "RTS-System";
+	kr['tr_rtssystem'] = "RTS-System";
+	ru['tr_rtssystem'] = "Система RTS";
+
+	de['tr_plcversion'] = "PLC Version";
+	en['tr_plcversion'] = "PLC Version";
+	cn['tr_plcversion'] = "PLC-版本";
+	fr['tr_plcversion'] = "PLC Version";
+	kr['tr_plcversion'] = "PLC-버전";
+	ru['tr_plcversion'] = "Версия PLC";
+
+	de['tr_simpacver'] = "Simpac Software Version";
+	en['tr_simpacver'] = "Simpac Software Version";
+	cn['tr_simpacver'] = "Simpac 软件版本";
+	fr['tr_simpacver'] = "Version de Simpac";
+	kr['tr_simpacver'] = "Simpac Software 버전";
+	ru['tr_simpacver'] = "Версия программного обеспечения SimPac";
+
+	de['tr_rtsdriverver'] = "RTS Treiber Version";
+	en['tr_rtsdriverver'] = "RTS Driver Version";
+	cn['tr_rtsdriverver'] = "RTS 软件版本";
+	fr['tr_rtsdriverver'] = "Version de RTS";
+	kr['tr_rtsdriverver'] = "RTS Software 버전";
+	ru['tr_rtsdriverver'] = "Версия программного обеспечения RTS";
+
+	de['tr_operatorpanel'] = "Bedienteil";
+	en['tr_operatorpanel'] = "operator panel";
+	cn['tr_operatorpanel'] = "操作面板";
+	fr['tr_operatorpanel'] = "Interface utilisateur";
+	kr['tr_operatorpanel'] = "operator panel";
+	ru['tr_operatorpanel'] = "Панель управления";
+
+	de['tr_operatingtime'] = "Betriebsstunden";
+	en['tr_operatingtime'] = "Operatingtime";
+	cn['tr_operatingtime'] = "运行时间";
+	fr['tr_operatingtime'] = "Heures de fonctionnement";
+	kr['tr_operatingtime'] = "가동시간";
+	ru['tr_operatingtime'] = "Время эксплуатации";
+
+	de['tr_prognosticmaint'] = "Wartungsbedarf";
+	en['tr_prognosticmaint'] = "prognostic maintenance";
+	cn['tr_prognosticmaint'] = "维护进度";
+	fr['tr_prognosticmaint'] = "Besoin en maintenance";
+	kr['tr_prognosticmaint'] = "유지보수";
+	ru['tr_prognosticmaint'] = "Потребность техобслуживания";
+
+	de['tr_cpuload'] = "CPU Auslastung";
+	en['tr_cpuload'] = "CPU Load";
+	cn['tr_cpuload'] = "CPU 装载进度";
+	fr['tr_cpuload'] = "Utilisation du CPU";
+	kr['tr_cpuload'] = "CPU 로드";
+	ru['tr_cpuload'] = "Загрузка процессора";
+
+	de['tr_configuration'] = "Konfiguration";
+	en['tr_configuration'] = "Configuration";
+	cn['tr_configuration'] = "配置";
+	fr['tr_configuration'] = "Configuration";
+	kr['tr_configuration'] = "Configuration";
+	ru['tr_configuration'] = "Configuration";
+
+	de['tr_info'] = "Info";
+	en['tr_info'] = "Info";
+	cn['tr_info'] = "信息";
+	fr['tr_info'] = "Info";
+	kr['tr_info'] = "Info";
+	ru['tr_info'] = "Загрузка процессора";
+
+	de['tr_msg'] = "Meldungen";
+	en['tr_msg'] = "Messages";
+	cn['tr_msg'] = "信息";
+	fr['tr_msg'] = "Nouvelles";
+	kr['tr_msg'] = "Messages";
+	ru['tr_msg'] = "Сообщения";
+	
+	de['tr_maint'] = "Wartung";
+	en['tr_maint'] = "Maintenance";
+	cn['tr_maint'] = "维护";
+	fr['tr_maint'] = "Maintenance";
+	kr['tr_maint'] = "tr_maint";
+	ru['tr_maint'] = "Техническое обслуживание";
+	
+	de['tr_time'] = "Zeiteinstellung";
+	en['tr_time'] = "Time";
+	cn['tr_time'] = "时间";
+	fr['tr_time'] = "temps";
+	kr['tr_time'] = "tr_time";
+	ru['tr_time'] = "Установка времени";
+
+	de['tr_menuset'] = "Setzen";
+	en['tr_menuset'] = "Set";
+	cn['tr_menuset'] = "设置";
+	fr['tr_menuset'] = "Set";
+	kr['tr_menuset'] = "tr_set";
+	ru['tr_menuset'] = "Мануальное управление";
+	
+	de['tr_auto'] = "Automatik";
+	en['tr_auto'] = "Automatic";
+	cn['tr_auto'] = "自动";
+	fr['tr_auto'] = "Automatic";
+	kr['tr_auto'] = "tr_auto";
+	ru['tr_auto'] = "Автоматика";
+
+	de['tr_usb'] = "USB";
+	en['tr_usb'] = "USB";
+	cn['tr_usb'] = "USB";
+	fr['tr_usb'] = "USB";
+	kr['tr_usb'] = "USB";
+	ru['tr_usb'] = "USB";
+
+	de['tr_service'] = "Service";
+	en['tr_service'] = "Service";
+	cn['tr_service'] = "服务";
+	fr['tr_service'] = "Service";
+	kr['tr_service'] = "Service";
+	ru['tr_service'] = "Сервис";
+
+	// info
+	de['tr_chart'] = "Linienschreiber:";
+	en['tr_chart'] = "Chart:";
+	cn['tr_chart'] = "趋势图:";
+	fr['tr_chart'] = "Courbe:";
+	kr['tr_chart'] = "Chart:";
+	ru['tr_chart'] = "Chart:";
+
+	de['tr_cv'] = "Regelgrößen";
+	en['tr_cv'] = "Controlled Values";
+	cn['tr_cv'] = "控制变量";
+	fr['tr_cv'] = "Valeurs";
+	kr['tr_cv'] = "통제값";
+	ru['tr_cv'] = "Регулиркемые величины";
+	
+	de['tr_mv'] = "Messwerte";
+	en['tr_mv'] = "Measured Values";
+	cn['tr_mv'] = "测量数值";
+	fr['tr_mv'] = "Valeur mesurée";
+	kr['tr_mv'] = "측정값";
+	ru['tr_mv'] = "Измеряемые величины";
+
+	de['tr_sv'] = "Stellwerte";
+	en['tr_sv'] = "Set values";
+	cn['tr_sv'] = "设置值";
+	fr['tr_sv'] = "Valeur de consigne";
+	kr['tr_sv'] = "Set values";
+	ru['tr_sv'] = "Регулируемые величины";
+
+	de['tr_do'] = "Digitale Kanäle";
+	en['tr_do'] = "Digital channels";
+	cn['tr_do'] = "数字通道";
+	fr['tr_do'] = "Canaux Digitals";
+	kr['tr_do'] = "디지털 채널";
+	ru['tr_do'] = "Цифровые каналы";
+
+	de['tr_di'] = "Digitale Eingänge";
+	en['tr_di'] = "Digital inputs";
+	cn['tr_di'] = "数字通道";
+	fr['tr_di'] = "Canaux Digitals";
+	kr['tr_di'] = "디지털 채널";
+	ru['tr_di'] = "Цифровые каналы";
+
+	de['tr_name'] = "Name";
+	en['tr_name'] = "Name";
+	cn['tr_name'] = "名字";
+	fr['tr_name'] = "Nom";
+	kr['tr_name'] = "Name";
+	ru['tr_name'] = "Название";
+
+	de['tr_unit'] = "Einheit";
+	en['tr_unit'] = "Unit";
+	cn['tr_unit'] = "单位";
+	fr['tr_unit'] = "Entité";
+	kr['tr_unit'] = "Unit";
+	ru['tr_unit'] = "Единица измерения";
+
+	de['tr_act'] = "Istwert";
+	en['tr_act'] = "Actual value";
+	cn['tr_act'] = "实际数值";
+	fr['tr_act'] = "Valeur actuel";
+	kr['tr_act'] = "현재값";
+	ru['tr_act'] = "Действительное значение";
+
+	de['tr_setp'] = "Sollwert";
+	en['tr_setp'] = "Setpoint";
+	cn['tr_setp'] = "设定值";
+	fr['tr_setp'] = "Valeur de consigne";
+	kr['tr_setp'] = "설정값";
+	ru['tr_setp'] = "Заданное значение";
+	
+	de['tr_wmin'] = "Warn-Min";
+	en['tr_wmin'] = "Warn-Min";
+	cn['tr_wmin'] = "最小警告值";
+	fr['tr_wmin'] = "Warn-Min";
+	kr['tr_wmin'] = "경고-최저값";
+	ru['tr_wmin'] = "Минимум предупреждения";
+	
+	de['tr_wmax'] = "Warn-Max";
+	en['tr_wmax'] = "Warn-Max";
+	cn['tr_wmax'] = "最大警告值";
+	fr['tr_wmax'] = "Warn-Max";
+	kr['tr_wmax'] = "경고-최고값";
+	ru['tr_wmax'] = "Максимум предупреждения";
+	
+	de['tr_amin'] = "Alarm-Min";
+	en['tr_amin'] = "Alarm-Min";
+	cn['tr_amin'] = "最小报警值";
+	fr['tr_amin'] = "Alerte-min";
+	kr['tr_amin'] = "경보-최저값";
+	ru['tr_amin'] = "Минимум тревоги";
+	
+	de['tr_amax'] = "Alarm-Max";
+	en['tr_amax'] = "Alarm-Max";
+	cn['tr_amax'] = "最大报警值";
+	fr['tr_amax'] = "Alerte-max";
+	kr['tr_amax'] = "경보-최고값";
+	ru['tr_amax'] = "Максимум тревоги";
+	
+	de['tr_feedb'] = "Istwert";
+	en['tr_feedb'] = "Feedback";
+	cn['tr_feedb'] = "状态";
+	fr['tr_feedb'] = "Canaux Digitals";
+	kr['tr_feedb'] = "피드백";
+	ru['tr_feedb'] = "Действительное значение";
+	
+	// Meldungen
+	de['tr_mstitle'] = "Meldungen";
+	en['tr_mstitle'] = "Messages";
+	cn['tr_mstitle'] = "信息";
+	fr['tr_mstitle'] = "Nouvelles";
+	kr['tr_mstitle'] = "메세지";
+	ru['tr_mstitle'] = "Сообщения";
+
+	de['tr_active'] = "Aktiv";
+	en['tr_active'] = "Active";
+	cn['tr_active'] = "激活";
+	fr['tr_active'] = "Etat";
+	kr['tr_active'] = "현재";
+	ru['tr_active'] = "активно";
+
+	de['tr_coltype'] = "Typ";
+	en['tr_coltype'] = "Type";
+	cn['tr_coltype'] = "类型";
+	fr['tr_coltype'] = "Type";
+	kr['tr_coltype'] = "형식";
+	ru['tr_coltype'] = "тип";
+
+	de['tr_msquit'] = "Fehler quittieren";
+	en['tr_msquit'] = "Quit Errors";
+	cn['tr_msquit'] = "确认错误";
+	fr['tr_msquit'] = "Quit Errors";
+	kr['tr_msquit'] = "에러 빠져나가기";
+	ru['tr_msquit'] = "Подтвердить ошибку";
+
+	// Wartung
+	de['tr_maint_title'] = "Wartungszähler";
+	en['tr_maint_title'] = "Maintenance Counter";
+	cn['tr_maint_title'] = "维护小时数";
+	fr['tr_maint_title'] = "Maintenance Counter";
+	kr['tr_maint_title'] = "유지보수 현황";
+	ru['tr_maint_title'] = "Счетчик техобслуживания";
+	
+	de['tr_mt_statusrel'] = "Wartungsbedarf";
+	en['tr_mt_statusrel'] = "Need for Maintenance";
+	cn['tr_mt_statusrel'] = "实际小时数/总小时数";
+	fr['tr_mt_statusrel'] = "Besoin en maintenance AV rel.";
+	kr['tr_mt_statusrel'] = "유지보수 상황 현재 퍼센트";
+	ru['tr_mt_statusrel'] = "Необходимость техобслуживания";
+
+	de['tr_mt_warnlim'] = "WarnLimit";
+	en['tr_mt_warnlim'] = "WarnLimit";
+	cn['tr_mt_warnlim'] = "警告限制";
+	fr['tr_mt_warnlim'] = "Limite d'avertissement";
+	kr['tr_mt_warnlim'] = "경고제한치";
+	ru['tr_mt_warnlim'] = "Граница предупреждения";
+	
+	de['tr_mt_alarmlim'] = "AlarmLimit";
+	en['tr_mt_alarmlim'] = "AlarmLimit";
+	cn['tr_mt_alarmlim'] = "报警限制";
+	fr['tr_mt_alarmlim'] = "Limite d'alerte";
+	kr['tr_mt_alarmlim'] = "경보제한치";
+	ru['tr_mt_alarmlim'] = "Граница тревоги";
+
+	// Menü Konfiguration
+	de['tr_txt_config'] = "Konfiguration";
+	en['tr_txt_config'] = "Configuration";
+	cn['tr_txt_config'] = "配置";
+	fr['tr_txt_config'] = "Configuration";
+	kr['tr_txt_config'] = "Configuration";
+	ru['tr_txt_config'] = "Configuration";
+	
+	de['tr_interface'] = "Schnittstelle";
+	en['tr_interface'] = "Interface";
+	cn['tr_interface'] = "界面";
+	fr['tr_interface'] = "Interface";
+	kr['tr_interface'] = "Interface";
+	ru['tr_interface'] = "Interface";
+
+	de['tr_powerfail'] = "Netzausfall";
+	en['tr_powerfail'] = "Powerfail";
+	cn['tr_powerfail'] = "停电故障";
+	fr['tr_powerfail'] = "Coupure";
+	kr['tr_powerfail'] = "Powerfail";
+	ru['tr_powerfail'] = "Powerfail";
+
+	de['tr_lighthorn'] = "Licht/Horn";
+	en['tr_lighthorn'] = "Light/Horn";
+	cn['tr_lighthorn'] = "灯/蜂鸣器";
+	fr['tr_lighthorn'] = "Light/Horn";
+	kr['tr_lighthorn'] = "Light/Horn";
+	ru['tr_lighthorn'] = "Light/Horn";
+
+	de['tr_baseconfig'] = "Grundkonfiguration";
+	en['tr_baseconfig'] = "Basic configuration";
+	cn['tr_baseconfig'] = "基本配置";
+	fr['tr_baseconfig'] = "Basic configuration";
+	kr['tr_baseconfig'] = "Basic configuration";
+	ru['tr_baseconfig'] = "Basic configuration";
+
+	// Menü Schnittstelle
+	de['tr_serial'] = "Seriell";
+	en['tr_serial'] = "Serial";
+	cn['tr_serial'] = "系列";
+	fr['tr_serial'] = "Interface série";
+	kr['tr_serial'] = "Serial";
+	ru['tr_serial'] = "Serial";
+	
+	de['tr_network'] = "Netzwerk";
+	en['tr_network'] = "Network";
+	cn['tr_network'] = "网络";
+	fr['tr_network'] = "Résau";
+	kr['tr_network'] = "Network";
+	ru['tr_network'] = "Network";
+
+	de['tr_address'] = "Adresse";
+	en['tr_address'] = "Address";
+	cn['tr_address'] = "地址";
+	fr['tr_address'] = "Adresse";
+	kr['tr_address'] = "Address";
+	ru['tr_address'] = "Address";
+
+	de['tr_baud'] = "Baudrate";
+	en['tr_baud'] = "Baud rate";
+	cn['tr_baud'] = "波特率";
+	fr['tr_baud'] = "Bauds";
+	kr['tr_baud'] = "Baud rate";
+	ru['tr_baud'] = "Baud rate";
+
+	de['tr_ipaddress'] = "IP-Adresse";
+	en['tr_ipaddress'] = "IP-Address";
+	cn['tr_ipaddress'] = "IP-地址";
+	fr['tr_ipaddress'] = "Adresse IP";
+	kr['tr_ipaddress'] = "IP-Adress";
+	ru['tr_ipaddress'] = "IP-Adress";
+	
+	de['tr_subnet'] = "Netzmaske";
+	en['tr_subnet'] = "Subnet";
+	cn['tr_subnet'] = "掩码";
+	fr['tr_subnet'] = "Masque";
+	kr['tr_subnet'] = "Subnet";
+	ru['tr_subnet'] = "Subnet";
+	
+	de['tr_gateway'] = "Gateway";
+	en['tr_gateway'] = "Gateway";
+	cn['tr_gateway'] = "网关";
+	fr['tr_gateway'] = "Passerelle";
+	kr['tr_gateway'] = "Gateway";
+	ru['tr_gateway'] = "Gateway";
+	
+	// Menü Netzausfall
+	de['tr_pfimode'] = "Modus";
+	en['tr_pfimode'] = "Mode";
+	cn['tr_pfimode'] = "模式";
+	fr['tr_pfimode'] = "Mode";
+	kr['tr_pfimode'] = "Mode";
+	ru['tr_pfimode'] = "Mode";
+
+	de['tr_modenever'] = "Test nie fortsetzen";
+	en['tr_modenever'] = "Never continue test";
+	cn['tr_modenever'] = "不继续测试";
+	fr['tr_modenever'] = "Jamais continuer";
+	kr['tr_modenever'] = "Never continue test";
+	ru['tr_modenever'] = "Never continue test";
+
+	de['tr_modealways'] = "Test immer fortsetzen";
+	en['tr_modealways'] = "Always continue test";
+	cn['tr_modealways'] = "总是继续测试";
+	fr['tr_modealways'] = "Toujours continuer";
+	kr['tr_modealways'] = "Always continue test";
+	ru['tr_modealways'] = "Always continue test";
+
+	de['tr_maxtime'] = "max. Ausfallzeit";
+	en['tr_maxtime'] = "max. power failure time";
+	cn['tr_maxtime'] = "最大允许停电时间";
+	fr['tr_maxtime'] = "Durée de coupure max.";
+	kr['tr_maxtime'] = "max. power failure time";
+	ru['tr_maxtime'] = "max. power failure time";
+
+	de['tr_maxtol'] = "max. Ausfalltoleranz";
+	en['tr_maxtol'] = "max. tolerance";
+	cn['tr_maxtol'] = "最大容差";
+	fr['tr_maxtol'] = "Tolérance max.";
+	kr['tr_maxtol'] = "max. tolerance";
+	ru['tr_maxtol'] = "max. tolerance";
+	
+	// Menü Licht Horn
+	de['tr_light'] = "Prüfraumbeleuchtung";
+	en['tr_light'] = "Chamber light";
+	cn['tr_light'] = "试验箱灯";
+	fr['tr_light'] = "Chamber light";
+	kr['tr_light'] = "Chamber light";
+	ru['tr_light'] = "Chamber light";
+
+	de['tr_horn'] = "Alarm-Horn";
+	en['tr_horn'] = "Alarm horn";
+	cn['tr_horn'] = "报警蜂鸣器";
+	fr['tr_horn'] = "Alarm horn";
+	kr['tr_horn'] = "Alarm horn";
+	ru['tr_horn'] = "Alarm horn";
+	
+	de['tr_auto_off'] = "Automatische Abschaltung nach";
+	en['tr_auto_off'] = "Automatic switch off after";
+	cn['tr_auto_off'] = "...以后自动关闭";
+	fr['tr_auto_off'] = "Arrêt automatique après";
+	kr['tr_auto_off'] = "Automatic switch off after";
+	ru['tr_auto_off'] = "Automatic switch off after";
+
+	de['tr_neveroff'] = "(0 min = keine automatische Abschaltung)";
+	en['tr_neveroff'] = "(0 min = no auto switch off)";
+	cn['tr_neveroff'] = "(0 分钟 = 无自动关闭功能)";
+	fr['tr_neveroff'] = "(0 min = sans arrêt automatique)";
+	kr['tr_neveroff'] = "(0 min = no auto switch off)";
+	ru['tr_neveroff'] = "(0 min = no auto switch off)";
+
+	de['tr_alarms'] = "Alarme";
+	en['tr_alarms'] = "Alarms";
+	cn['tr_alarms'] = "报警";
+	fr['tr_alarms'] = "Alarms";
+	kr['tr_alarms'] = "Alarms";
+	ru['tr_alarms'] = "Alarms";
+
+	de['tr_warnings'] = "Warnungen";
+	en['tr_warnings'] = "Warnings";
+	cn['tr_warnings'] = "警告";
+	fr['tr_warnings'] = "Warnings";
+	kr['tr_warnings'] = "Warnings";
+	ru['tr_warnings'] = "Warnings";
+
+	de['tr_infos'] = "Meldungen";
+	en['tr_infos'] = "Messages";
+	cn['tr_infos'] = "信息";
+	fr['tr_infos'] = "Messages";
+	kr['tr_infos'] = "Messages";
+	ru['tr_infos'] = "Messages";
+
+	// Menü Datum Zeit
+	de['tr_datetime'] = "Datum und Uhrzeit";
+	en['tr_datetime'] = "Daten and time";
+	cn['tr_datetime'] = "日期和时间";
+	fr['tr_datetime'] = "Date et Heure";
+	kr['tr_datetime'] = "날짜와 시간";
+	ru['tr_datetime'] = "Число и время";
+
+	de['tr_date'] = "Datum";
+	en['tr_date'] = "Date";
+	cn['tr_date'] = "日期";
+	fr['tr_date'] = "Date";
+	kr['tr_date'] = "Date";
+	ru['tr_date'] = "Date";
+
+	de['tr_time'] = "Uhrzeit";
+	en['tr_time'] = "Time";
+	cn['tr_time'] = "时间";
+	fr['tr_time'] = "Heure";
+	kr['tr_time'] = "Time";
+	ru['tr_time'] = "Time";
+
+	de['tr_dosync'] = "Synchronisiere Simpac-Zeit<br>mit PC-Zeit:";
+	en['tr_dosync'] = "Set Simpac Time<br>to PC Time:";
+	cn['tr_dosync'] = "把PC的时间设定到SIMPAC";
+	fr['tr_dosync'] = "Synchroniser avec<br>l'heure du PC";
+	kr['tr_dosync'] = "PC 시간 설정";
+	ru['tr_dosync'] = "Перенять компьютерное время";
+
+	de['tr_btsync'] = "Synchronisieren";
+	en['tr_btsync'] = "Synchronize";
+	cn['tr_btsync'] = "同步";
+	fr['tr_btsync'] = "Synchroniser";
+	kr['tr_btsync'] = "Synchronize";
+	ru['tr_btsync'] = "Synchronize";
+	
+	// Menü Manual
+	de['tr_startstop'] = "Start/Stopp";
+	en['tr_startstop'] = "Start/Stop";
+	cn['tr_startstop'] = "启动/停止";
+	fr['tr_startstop'] = "Démarrer/Arrêt";
+	kr['tr_startstop'] = "시작/멈춤";
+	ru['tr_startstop'] = "Старт/Стоп";
+
+	de['tr_changesp'] = "Sollwert setzen";
+	en['tr_changesp'] = "Change Setpoint";
+	cn['tr_changesp'] = "修改设定值";
+	fr['tr_changesp'] = "Changer valeur";
+	kr['tr_changesp'] = "설정값 변경";
+	ru['tr_changesp'] = "задать значение";
+	
+	de['tr_writeacs'] = "Schreibberechtigung";
+	en['tr_writeacs'] = "Permission to write";
+	cn['tr_writeacs'] = "允许写入";
+	fr['tr_writeacs'] = "Permission to write";
+	kr['tr_writeacs'] = "Permission to write";
+	ru['tr_writeacs'] = "Право изменить";
+	
+	// Menü Automatik
+	de['tr_automode'] = "Automatikbetrieb";
+	en['tr_automode'] = "Automatic Mode";
+	cn['tr_automode'] = "自动模式";
+	fr['tr_automode'] = "Suivi de programme";
+	kr['tr_automode'] = "자동모드";
+	ru['tr_automode'] = "Автоматический режим";
+
+	de['tr_profilno'] = "Programm Nr.";
+	en['tr_profilno'] = "Profile No.";
+	cn['tr_profilno'] = "程序号";
+	fr['tr_profilno'] = "Numéro du programme";
+	kr['tr_profilno'] = "프로파일 번호";
+	ru['tr_profilno'] = "Номер программы";
+
+	de['tr_profilename'] = "Profile Name";
+	en['tr_profilename'] = "Profile Name";
+	cn['tr_profilename'] = "程序名";
+	fr['tr_profilename'] = "Nom du programme";
+	kr['tr_profilename'] = "프로파일 이름";
+	ru['tr_profilename'] = "Название программы";
+
+	de['tr_profilecycles'] = "Programmzyklen";
+	en['tr_profilecycles'] = "Profile Cycles";
+	cn['tr_profilecycles'] = "程序循环";
+	fr['tr_profilecycles'] = "Nombre de répétitions du programme";
+	kr['tr_profilecycles'] = "프로파일 사이클";
+	ru['tr_profilecycles'] = "Повторения программы";
+	
+	de['tr_activecycles'] = "Active Zyklen";
+	en['tr_activecycles'] = "Active Cycles";
+	cn['tr_activecycles'] = "激活的程序";
+	fr['tr_activecycles'] = "Numéro de répétition actuel du programme";
+	kr['tr_activecycles'] = "실행 사이클";
+	ru['tr_activecycles'] = "Актуальное повторение";
+
+	de['tr_totalloops'] = "Gesamt Loops";
+	en['tr_totalloops'] = "Total Loops";
+	cn['tr_totalloops'] = "内循环总数";
+	fr['tr_totalloops'] = "Nombre de répétitions";
+	kr['tr_totalloops'] = "총 반복수";
+	ru['tr_totalloops'] = "Все петли";
+	
+	de['tr_actloops'] = "Akt Loops";
+	en['tr_actloops'] = "Act Loops";
+	cn['tr_actloops'] = "激活的内循环";
+	fr['tr_actloops'] = "Numéro de répétition actuel";
+	kr['tr_actloops'] = "실행 반복수";
+	ru['tr_actloops'] = "Актуальная петля";
+	
+	de['tr_segment'] = "Segment";
+	en['tr_segment'] = "Segment";
+	cn['tr_segment'] = "段";
+	fr['tr_segment'] = "Nombre de segments";
+	kr['tr_segment'] = "구간";
+	ru['tr_segment'] = "Отрезок";
+	
+	de['tr_leadtime'] = "Vorlaufzeit";
+	en['tr_leadtime'] = "Lead Time";
+	cn['tr_leadtime'] = "启动偏移时间";
+	fr['tr_leadtime'] = "Décalage au démarrage (s)";
+	kr['tr_leadtime'] = "소요시간";
+	ru['tr_leadtime'] = "Предварительное время";
+	
+	de['tr_activetime'] = "Aktivzeit";
+	en['tr_activetime'] = "Active Time";
+	cn['tr_activetime'] = "程序已运行时间";
+	fr['tr_activetime'] = "Temps écoulé (d'après le profil)";
+	kr['tr_activetime'] = "실행시간";
+	ru['tr_activetime'] = "Активное время";
+	
+	de['tr_profiletime'] = "Profilzeit";
+	en['tr_profiletime'] = "Profile Time";
+	cn['tr_profiletime'] = "程序时间";
+	fr['tr_profiletime'] = "Durée du programme";
+	kr['tr_profiletime'] = "프로파일 시간";
+	ru['tr_profiletime'] = "Продолжительность программы";
+	
+	de['tr_totaltime'] = "Gesamtzeit";
+	en['tr_totaltime'] = "Total Time";
+	cn['tr_totaltime'] = "总运行时间";
+	fr['tr_totaltime'] = "Temps écoulé (réel)";
+	kr['tr_totaltime'] = "총 시간";
+	ru['tr_totaltime'] = "Время";
+	
+	de['tr_segmenttype'] = "Segment Typ";
+	en['tr_segmenttype'] = "Segment Type";
+	cn['tr_segmenttype'] = "段类型";
+	fr['tr_segmenttype'] = "Type de segment";
+	kr['tr_segmenttype'] = "구간 형식";
+	ru['tr_segmenttype'] = "Тип отрезка";
+	
+	de['tr_segmenttotaltime'] = "Segment Gesamtzeit";
+	en['tr_segmenttotaltime'] = "Segment Total Time";
+	cn['tr_segmenttotaltime'] = "段总时间";
+	fr['tr_segmenttotaltime'] = "Temps total du segment";
+	kr['tr_segmenttotaltime'] = "구간 총 시간";
+	ru['tr_segmenttotaltime'] = "Общая продолжительность отрезка";
+	
+	de['tr_segmentremaintime'] = "Segment Restzeit";
+	en['tr_segmentremaintime'] = "Segment Remain Time";
+	cn['tr_segmentremaintime'] = "段剩余时间";
+	fr['tr_segmentremaintime'] = "Temps restant sur le segment";
+	kr['tr_segmentremaintime'] = "구간 잔여 시간";
+	ru['tr_segmentremaintime'] = "Оставшаяся продолжительность отрезка";
+
+	de['tr_status'] = "Status";
+	en['tr_status'] = "Status";
+	cn['tr_status'] = "状态";
+	fr['tr_status'] = "Status";
+	kr['tr_status'] = "Status";
+	ru['tr_status'] = "Status";
+
+	de['tr_prgstartstop'] = "Programm-Start/Stopp";
+	en['tr_prgstartstop'] = "Start/Stop Programs";
+	cn['tr_prgstartstop'] = "启动/停止程序";
+	fr['tr_prgstartstop'] = "Marche/Arrêt du Programme";
+	kr['tr_prgstartstop'] = "프로그램 시작/멈춤";
+	ru['tr_prgstartstop'] = "Старт/ Стоп программы";
+
+	de['tr_open'] = "Öffnen";
+	en['tr_open'] = "Open";
+	cn['tr_open'] = "打开";
+	fr['tr_open'] = "Ouvrir";
+	kr['tr_open'] = "Open";
+	ru['tr_open'] = "Open";
+
+	/////////////////////////////
+	de['tr_template'] = "";
+	en['tr_template'] = "";
+	cn['tr_template'] = "";
+	fr['tr_template'] = "";
+	kr['tr_template'] = "";
+	ru['tr_template'] = "";
+
+	/////////////////////////////
+
+	var resources = new Array();
+	resources['de'] = de;
+	resources['en'] = en;
+	resources['cn'] = cn;
+	resources['fr'] = fr;
+	resources['kr'] = kr;
+	resources['ru'] = ru;
+	
+	return resources;
+}
+
+function changeLanguage(langCode){
+
+	var langResources= getLanguageResources();
+	var countryCode = ['en', 'fr', 'de', 'es', 'it', 'pt', 'ru', 'cn', 'kr'];
+	var lang;
+	var object;
+	var txt_id;
+	var attr;
+	
+	lang = countryCode[langCode-1];
+	
+	// buttons uebersetzten
+    $("input[type='button']").each(function(i, elt){
+		attr = $(elt).attr("name"); 
+		if (typeof attr == "undefined")
+		{
+//				$(elt).val("no translation attrib !!!");
+		}
+		else
+		{
+			txt_id = langResources[lang][attr];
+			if (typeof txt_id == "undefined")
+			{
+				// $(elt).val("no translation txt !!!");
+			}
+			else
+			{
+//				$(elt).val(langResources[lang][$(elt).attr("name")]);
+				$(elt).val(langResources[lang][attr]);
+			}
+		}
+    });    
+    
+	// submit buttons uebersetzten
+    $("input[type='submit']").each(function(i, elt)
+	{
+		attr = $(elt).attr("name");
+		if (typeof attr == "undefined")
+		{
+			// $(elt).val("no translation attrib !!!");
+		}
+		else
+		{
+			txt_id = langResources[lang][attr];
+			if (typeof txt_id == "undefined")
+			{
+				// $(elt).val("no translation txt !!!");
+			}
+			else
+			{
+				$(elt).val(langResources[lang][attr]);
+			}
+		}
+    });    
+    
+	// Div IDs uebersetzten
+    $("[id]").each(function(i, elt){
+		if ($(elt).attr("id") != "")
+			$(elt).html(langResources[lang][$(elt).attr("id")]);
+    });    
+	
+	// Tooltips uebersetzten
+    $("[id='nav']").each(function(i, elt){
+        $(elt).attr('title', langResources[lang][$(elt).attr("alt")]);
+    });    
+
+}
+
+

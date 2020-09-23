@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0062)http://192.168.3.105/simpac/typeplate/typeplate.plc?langCode=1 -->
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+	<title>SimPac</title>
+
+
+	
+	 <script language="javascript" type="text/javascript" src="./SimPac1_files/jquery.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script><style></style>
+	 <script language="javascript" type="text/javascript" src="./SimPac1_files/language.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+	 <script language="javascript" type="text/javascript" src="./SimPac1_files/header.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+	  
+	<link rel="stylesheet" type="text/css" href="./SimPac1_files/c3000style_pda.css" media="handheld">
+	<link rel="stylesheet" type="text/css" href="./SimPac1_files/c3000style.css" media="screen">
+<script async="" src="./SimPac1_files/adblocker-chromeglobalinjectjs.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script></head>
+
+
+<body class="bodyTables"><table class="header">
+	<tbody><tr class="HeadLine">
+		<td width="60px">
+		<a href="http://192.168.3.105/simpac/index.plc" target="_parent"> <img src="./SimPac1_files/home.gif" title="home" name="home" width="60" height="60" border="0"></a>
+		</td>
+		<td><img src="./SimPac1_files/simpac_web.gif" title="SimPac"></td>	
+		<td>
+			<div id="EquipmNo" wfd-id="25">58566186790010</div>
+			<div id="IpAdr" wfd-id="24">192.168.3.105</div>
+		</td>
+	</tr>
+	<tr>
+		<td><div id="ChbMode" style="font-weight:bold" wfd-id="23"> </div></td>
+		<td>
+			<img id="StatImg" src="./SimPac1_files/on_00.gif">
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc"><img id="MsImg" src="./SimPac1_files/on_00.gif" border="0">
+		</a></td>
+		
+		<td> 
+			<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc?langCode=1#"><img id="lang" name="3" src="./SimPac1_files/FlagGermany.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc?langCode=1#"><img id="lang" name="1" src="./SimPac1_files/FlagUSAUK.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc?langCode=1#"><img id="lang" name="8" src="./SimPac1_files/FlagChina.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc?langCode=1#"><img id="lang" name="2" src="./SimPac1_files/FlagFrench.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc?langCode=1#"><img id="lang" name="9" src="./SimPac1_files/FlagSuedkorea.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc?langCode=1#"><img id="lang" name="7" src="./SimPac1_files/FlagRussland.jpeg" width="25" height="14" border="0"></a>
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+<script language="JavaScript">
+
+
+
+$.ajaxSetup ({  
+	cache: false  
+});  
+
+
+
+
+
+
+function getUpdData()
+{
+	var loadVal = "";
+	var val = 0;
+	loadVal = getHMIValue("CPUload");
+	val = Number(loadVal).toFixed(1);
+	if (val<0) val=0;
+	if (val>100) val=100;
+	
+	$("#CPU").text(val + "%");
+	$("#CPU").width(val + "%");
+	$("#CPU").removeClass();
+	if (val > 90)
+		$("#CPU").addClass("bar_alarm");
+	else
+		if (val > 70)
+			$("#CPU").addClass("bar_warn");
+		else
+			$("#CPU").addClass("bar");
+			
+	getHeaderInfo();
+
+			
+	setTimeout(getUpdData, 2000);
+}
+
+
+
+function waitForTrs()
+{
+	var TrsInProgress;
+	
+	TrsInProgress = getHMIValue("HMI.TrsCtrl.TrsStart");
+	if (TrsInProgress == "TRUE")
+	{
+		$("#indicator").text("Please wait...");
+		setTimeout(waitForTrs, 1000);
+	}
+	else
+	{
+		$("#indicator").text("");
+	}
+	
+}
+
+function changePlcLanguage(langCode)
+{
+	setHMIValue("HMI.TrsCtrl.Language1", langCode);
+	
+	setTimeout(waitForTrs, 1000);
+	
+    $("option[value='" + langCode + "']").attr("selected", "selected");
+}
+
+
+
+
+
+
+$(document).ready(function()
+{
+
+ 	getUpdData();
+	
+	getChbInfo();
+	
+	
+changeLanguage(1);
+changePlcLanguage(1);
+//		  $("option[value='1']").attr("selected", "selected");
+	
+	$("img[id='lang']").click(function() {
+		changeLanguage($(this).attr("name"));
+//		changePlcLanguage($(this).val());
+	});
+	
+})
+
+
+
+</script>
+
+
+
+
+<center>
+
+<div id="indicator" wfd-id="22"></div>
+
+<br>
+<h1><div id="tr_typeplate" wfd-id="21">Electronic type label</div></h1>
+<br>
+
+<table class="C3kTables" border="1" cellpadding="0" cellspacing="0" width="75%">
+	<tbody><tr class="col_odd">
+		<td>1</td>
+		<td align="left"><div id="tr_type" wfd-id="20">Type</div></td>
+	    <td align="left">
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.EquipmType"));</script>VC³ 7018
+		</td>
+	</tr>
+	<tr class="col_even">
+		<td>2</td>
+		<td align="left"><div id="tr_constr_year" wfd-id="19">Year of Construction</div></td>
+		<td align="left">
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.ConstrYear"));</script>2013
+		</td>
+	</tr>
+	<tr class="col_odd">
+		<td>3</td>
+		<td align="left"><div id="tr_equipno" wfd-id="18">Equipment No.</div></td>
+		<td align="left">
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.EquipmNo"));</script>58566186790010
+		</td>
+	</tr>
+	<tr class="col_even">
+		<td>4</td>
+		<td align="left"><div id="tr_orderno" wfd-id="17">Order No.</div></td>
+		<td align="left"> 
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.OrderNo"));</script>56618679
+		</td>
+	</tr>
+    <tr class="col_odd">
+		<td>5</td>
+		<td align="left"><div id="tr_plclibver" wfd-id="16">PLC Lib Version</div></td>
+		<td align="left">
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.SoftVer"));</script>Pac3000_FB_TEDV_PE_LIB 3.11/TB: 2.47
+		</td>
+    </tr>
+	<tr class="col_even">
+		<td>6</td>
+		<td align="left"><div id="tr_rtssystem" wfd-id="15">RTS-System</div></td>
+		<td align="left">
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.PlcSystem"));</script>1.37.2.2
+		</td>
+	</tr>
+    <tr class="col_odd">
+		<td>7</td>
+		<td align="left"><div id="tr_plcversion" wfd-id="14">PLC Version</div></td>
+		<td align="left">
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.PlcVer"));</script>K3K47_1834_C07[SimPAC_K3K47_1834]:20130925.0
+		</td>
+	</tr>
+	<tr class="col_even">
+		<td>8</td>
+		<td align="left"><div id="tr_simpacver" wfd-id="13">Simpac Software Version</div></td>
+		<td align="left">
+Simpac_2.8<br><span style="font-size:small" wfd-id="12">CP:17_SS:50_AS:39_PF:05_PG:66_DR:26_MB:15</span>
+		</td>
+	</tr>
+	<tr class="col_odd">
+		<td>9</td>
+		<td align="left"><div id="tr_rtsdriverver" wfd-id="11">RTS Driver Version</div></td>
+		<td align="left">
+
+		<script>document.write(getHMIValue("HMI.ChbInfo.BSPVer"));</script>PAC3000 I/O Driver 0.65
+		</td>
+	</tr>
+	
+<tr class="col_even"><td>10</td>    <td align="left"><span id="tr_operatorpanel" wfd-id="10">operator panel</span> 1</td>
+    <td align="left">""</td>
+</tr>
+<tr class="col_odd"><td>11</td>    <td align="left"><span id="tr_operatorpanel" wfd-id="9">operator panel</span> 2</td>
+    <td align="left">""</td>
+</tr>
+<tr class="col_even"><td>12</td>    <td align="left"><span id="tr_operatorpanel" wfd-id="8">operator panel</span> 3</td>
+    <td align="left">""</td>
+</tr>
+<tr class="col_odd"><td>13</td>    <td align="left"><span id="tr_operatorpanel" wfd-id="7">operator panel</span> 4</td>
+    <td align="left">"1.8.10_800x600"</td>
+</tr>
+
+	
+	<tr class="col_even">
+		<td>14</td>
+		<td align="left"><div id="tr_operatingtime" wfd-id="6">Operatingtime</div></td>
+		<td align="left">  
+   3165 "h"
+		</td>
+	</tr>
+	<tr class="col_odd">
+		<td>15</td>
+		<td align="left"><div id="tr_prognosticmaint" wfd-id="5">prognostic maintenance</div></td>
+<td align="left"><div class="bar_warn" style="width:79.137%" wfd-id="4">   79.1%</div>
+	</td>
+    </tr>
+	<tr class="col_even">
+		<td>16</td>
+		<td align="left"><div id="tr_cpuload" wfd-id="3">CPU Load</div></td>
+<td align="left"><div id="CPU" class="bar" style="width: 28.2%;" wfd-id="2">28.2%</div><nobr>
+
+	</nobr></td>
+	</tr>
+	<tr class="col_odd">
+		<td>17</td>
+		<td align="left"><div id="tr_configuration" wfd-id="1">Configuration</div></td>
+		<td align="left"><a href="http://192.168.3.105/simpac/typeplate/Equ_info.html">Details</a></td>
+	</tr>
+</tbody></table>
+
+
+
+<br>
+<br>
+<center>
+<table height="80">
+<tbody><tr align="center">
+	<td width="70">
+    <a href="http://192.168.3.105/simpac/info/c3k_frCVMV.plc"> <img src="./SimPac1_files/info.gif" id="nav" title="Info" alt="tr_info" width="60" height="60" border="0" style="display: inline-block; width: 60px; height: 60px;"></a>
+	</td>
+	<td width="70">
+    <a href="http://192.168.3.105/simpac/warning/c3k_warn.plc"> <img src="./SimPac1_files/messages.gif" id="nav" title="Messages" alt="tr_msg" width="60" height="60" border="0"></a>
+	</td>
+	<td width="70">
+    <a href="http://192.168.3.105/simpac/maintenance/c3k_frMT.plc"> <img src="./SimPac1_files/maintenance.gif" id="nav" title="Maintenance" alt="tr_maint" width="60" height="60" border="0"></a>
+	</td>
+	<td width="70">
+    <a href="http://192.168.3.105/simpac/time/c3k_time.plc"> <img src="./SimPac1_files/time2.gif" id="nav" title="Time" alt="tr_time" width="60" height="60" border="0"></a>
+	</td>
+	<td width="70">
+    <a href="http://192.168.3.105/simpac/set/c3k_set.plc"> <img src="./SimPac1_files/manu.gif" id="nav" title="Set" alt="tr_menuset" width="60" height="60" border="0"></a>
+	</td>
+	<td width="70">
+    <a href="http://192.168.3.105/simpac/auto/c3k_auto.plc"> <img src="./SimPac1_files/auto.gif" id="nav" title="Automatic" alt="tr_auto" width="60" height="60" border="0"></a>
+	</td>
+	<td width="70">
+<a href="http://192.168.3.105/simpac/set/usb_rec_en.plc"> 
+		<img src="./SimPac1_files/usb.gif" id="nav" title="USB" alt="tr_usb" width="60" height="60" border="0"></a>
+	
+	</td>
+	<td width="70">
+    <a href="http://192.168.3.105/simpac/service/c3k_Justierung_en.plc"> <img src="./SimPac1_files/service.gif" id="nav" title="Service" alt="tr_service" width="60" height="60" border="0"></a>
+	</td>
+</tr>
+</tbody></table>
+	
+</center>
+
+
+<script language="JavaScript">
+
+$("img[id='nav']").hover( 
+	function(){ 
+		$(this).animate({width:'+=10px', height:'+=10px'}, 100); 
+	}, 
+	function(){ 	
+		$(this).animate({width:'-=10px', height:'-=10px'}, 150); 
+	}
+);
+
+
+</script>
+
+
+
+<center>
+<h1>S!MPAC Web : 3.8</h1>
+<br>
+</center>
+
+</center><div class="kpm_LTR notranslate" translate="no" id="kpm-root" wfd-id="0"></div></body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0048)http://192.168.3.105/simpac/warning/c3k_warn.plc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>SimPac</title>
+
+
+	 <script language="javascript" type="text/javascript" src="./SimPac_error_files/jquery.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script><style></style>
+	 <script language="javascript" type="text/javascript" src="./SimPac_error_files/language.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+	 <script language="javascript" type="text/javascript" src="./SimPac_error_files/header.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+	  
+ <link rel="stylesheet" type="text/css" href="./SimPac_error_files/c3000style_pda.css" media="handheld">
+ <link rel="stylesheet" type="text/css" href="./SimPac_error_files/c3000style.css" media="screen">
+<script async="" src="./SimPac_error_files/adblocker-chromeglobalinjectjs.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script></head>
+
+<body class="bodyTables"><div id="header" wfd-id="9"><table class="header">
+	<tbody><tr class="HeadLine">
+		<td width="60px">
+		<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc" target="_parent"> <img src="./SimPac_error_files/home.gif" title="home" name="home" width="60" height="60" border="0"></a>
+		</td>
+		<td><img src="./SimPac_error_files/simpac_web.gif" title="SimPac"></td>	
+		<td>
+			<div id="EquipmNo" wfd-id="12">58566186790010</div>
+			<div id="IpAdr" wfd-id="11">192.168.3.105</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="ChbMode" style="font-weight:bold" wfd-id="10"> </div>
+		</td>
+		<td>
+			<img id="StatImg" src="./SimPac_error_files/on_00.gif">
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc"><img id="MsImg" src="./SimPac_error_files/on_00.gif" border="0"></a>
+		</td>
+		<td> 
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc#"><img id="lang" name="3" src="./SimPac_error_files/FlagGermany.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc#"><img id="lang" name="1" src="./SimPac_error_files/FlagUSAUK.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc#"><img id="lang" name="8" src="./SimPac_error_files/FlagChina.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc#"><img id="lang" name="2" src="./SimPac_error_files/FlagFrench.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc#"><img id="lang" name="9" src="./SimPac_error_files/FlagSuedkorea.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc#"><img id="lang" name="7" src="./SimPac_error_files/FlagRussland.jpeg" width="25" height="14" border="0"></a>
+		</td>
+	</tr>
+</tbody></table>
+<br></div>
+
+
+<script language="JavaScript">
+
+$.ajaxSetup ({  
+	cache: false  
+});  
+
+
+$('#header').load('../js/header.html', function(){
+	$("img[id='lang']").click(function() {
+		changeLanguage($(this).attr("name"));
+	});
+	
+	getHeaderInfo();
+	getChbInfo();
+
+});
+
+
+$(document).ready(function()
+{
+	
+changeLanguage(1);
+
+	
+});
+
+</script>
+
+
+
+<center>
+<br>
+<h1><div id="tr_mstitle" wfd-id="8">Messages</div></h1>
+<br>
+		
+<table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+	<tbody><tr class="col_header">
+		<td>&nbsp;</td>
+		<td align="left"><div id="tr_name" wfd-id="7">Name</div></td>
+		<td><div id="tr_active" wfd-id="6">Active</div></td>
+		<td><div id="tr_coltype" wfd-id="5">Type</div><span style="font-size:x-small" wfd-id="4">1=Alarm, 2=Warning, 4=Info</span></td>
+	</tr>
+
+
+
+
+<tr>
+	<td> </td>
+	<td><div id="tr_msquit" wfd-id="3">Quit Errors</div></td>
+	<td>
+		<form action="http://192.168.3.105/simpac/warning/c3k_warn.plc" method="get" wfd-id="2">
+			<input type="hidden" name="tag_value" value="1" wfd-id="15">
+			<input type="hidden" name="tag_name" value="HMI.MS_QuitAll" wfd-id="14">
+			<input type="submit" value="QUIT" wfd-id="13">
+		</form>
+	</td>
+	<td> </td>
+</tr>
+</tbody></table>
+</center>
+
+
+<br>
+<center>
+<h1><tt><a href="http://192.168.3.105/simpac/warning/c3k_warn.plc"><div id="tr_reload" wfd-id="1">Press F5 for reloading the page</div></a></tt></h1>
+</center>
+
+<div class="kpm_LTR notranslate" translate="no" id="kpm-root" wfd-id="0"></div></body></html>

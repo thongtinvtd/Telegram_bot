@@ -32,6 +32,7 @@ token_telegram='1184469265:AAGgnSA0T1z3_PLNWMLu9LpB1fu6dCeNjyY'
 #https://api.telegram.org/bot1150831495:AAF60TeituBAEZ9j4kiBp0Dhd1ArH9LpHH0/setWebhook?url=https://8e53b91dd33a.ngrok.io ....
 app = Flask(__name__) 
 sslify = SSLify(app)
+
 app.secret_key='qwetrqwywetyrtysdf'
 
 app.config['MYSQL_DATABASE_HOST']='localhost'
@@ -53,15 +54,14 @@ def write_json(data,filename='reponse.json'):
             json.dump(data,f,indent=4,ensure_ascii=False)
 
 
-def get_cmc_data():
-    url='https://api.thevirustracker.com/free-api?global=stats'
-    # params={'symbol':crypto, 'convert':'USD'}
-    # headers={'X-CMC_PRO_API_KEY':cmc_token}
-    # r=requests.get(url,headers=headers,params=params).json()
-    r=requests.get(url).json()
-    # write_json(r)
-    return_result=r['results'][0]['total_cases']
-    return return_result
+def get_data():
+    # url='https://api.thevirustracker.com/free-api?global=stats'
+    # r=requests.get(url).json()
+    # return_result=r['results'][0]['total_cases']
+    sql0="select temperature from climate where id=(select max(id) from climate);"
+    curs.execute(sql0)
+    tempo = curs.flechone()
+    return tempo
 #----------------------------------------------------------------------
 def send_message(chat_id,text='hellllo'):
     url = f'https://api.telegram.org/bot{token_telegram}/sendMessage'
@@ -98,8 +98,8 @@ def index():
             return Response('ok',status=200)
         else:
             if command=='start':
-                totalcase=get_cmc_data()
-                send_message(chat_id,totalcase)
+                getdata=get_data()
+                send_message(chat_id,getdata)
                 return Response('ok',status=200)
             elif command=='help':
                 list_commands='I have 4 commands:\n\b\b\b/start : start command, send the information\n\b\b\b/help : about me'

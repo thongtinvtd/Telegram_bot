@@ -10,6 +10,8 @@ flask = "*"
 requests = "*"
 flask-sslify = "*"
 wheel = "*"
+flask-mysql = "*"
+requests-html = "*"
 
 [requires]
 python_version = "3.8"

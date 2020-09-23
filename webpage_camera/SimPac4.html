@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0048)http://192.168.3.105/simpac/info/c3k_frCVMV.plc# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>SimPac</title>
+
+
+  
+	 <script language="javascript" type="text/javascript" src="./SimPac4_files/jquery.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script><style></style>
+	 <script language="javascript" type="text/javascript" src="./SimPac4_files/language.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+	 <script language="javascript" type="text/javascript" src="./SimPac4_files/header.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script>
+  
+ <link rel="stylesheet" type="text/css" href="./SimPac4_files/c3000style_pda.css" media="handheld">
+ <link rel="stylesheet" type="text/css" href="./SimPac4_files/c3000style.css" media="screen">
+<script async="" src="./SimPac4_files/adblocker-chromeglobalinjectjs.js.&#1041;&#1077;&#1079; &#1085;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1103;"></script></head>
+
+<body class="bodyTables"><div id="header" wfd-id="28"><table class="header">
+	<tbody><tr class="HeadLine">
+		<td width="60px">
+		<a href="http://192.168.3.105/simpac/typeplate/typeplate.plc" target="_parent"> <img src="./SimPac4_files/home.gif" title="home" name="home" width="60" height="60" border="0"></a>
+		</td>
+		<td><img src="./SimPac4_files/simpac_web.gif" title="SimPac"></td>	
+		<td>
+			<div id="EquipmNo" wfd-id="31">58566186790010</div>
+			<div id="IpAdr" wfd-id="30">192.168.3.105</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="ChbMode" style="font-weight:bold" wfd-id="29"> </div>
+		</td>
+		<td>
+			<img id="StatImg" src="./SimPac4_files/on_00.gif">
+			<a href="http://192.168.3.105/simpac/warning/c3k_warn.plc"><img id="MsImg" src="http://192.168.3.105/simpac/info/c3k_frCVMV.plc" border="0"></a>
+		</td>
+		<td> 
+			<a href="http://192.168.3.105/simpac/info/c3k_frCVMV.plc#"><img id="lang" name="3" src="./SimPac4_files/FlagGermany.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/info/c3k_frCVMV.plc#"><img id="lang" name="1" src="./SimPac4_files/FlagUSAUK.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/info/c3k_frCVMV.plc#"><img id="lang" name="8" src="./SimPac4_files/FlagChina.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/info/c3k_frCVMV.plc#"><img id="lang" name="2" src="./SimPac4_files/FlagFrench.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/info/c3k_frCVMV.plc#"><img id="lang" name="9" src="./SimPac4_files/FlagSuedkorea.jpeg" width="25" height="14" border="0"></a>
+			<a href="http://192.168.3.105/simpac/info/c3k_frCVMV.plc#"><img id="lang" name="7" src="./SimPac4_files/FlagRussland.jpeg" width="25" height="14" border="0"></a>
+		</td>
+	</tr>
+</tbody></table>
+<br></div>
+
+<script language="JavaScript">
+
+
+
+
+$('#header').load('../js/header.html', function() {
+	getHeaderInfo();
+	getChbInfo();
+	$("img[id='lang']").click(function() {
+		changeLanguage($(this).attr("name"));
+	});
+});
+
+
+
+$(document).ready(function()
+{
+	
+changeLanguage(1);
+
+	
+
+})
+</script>
+
+
+
+<center>
+
+
+<br>
+<h1><div id="tr_chart" wfd-id="27">Chart:</div></h1>
+<a href="http://192.168.3.105/simpac/chart/chart.plc" target="_blank"> <img src="./SimPac4_files/chart.gif" title="chart" name="chart" width="60" height="60" border="0"></a>
+<br>
+<br>
+
+<h1><div id="tr_cv" wfd-id="26">Controlled Values</div><br></h1>
+<table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+	<tbody><tr class="col_header">
+		 <td> &nbsp;</td>
+		 <td align="left"><div id="tr_name" wfd-id="25">Name</div></td>
+		 <td align="left"><div id="tr_unit" wfd-id="24">Unit</div></td>
+		 <td><div id="tr_act" wfd-id="23">Actual value</div></td>
+		 <td><div id="tr_setp" wfd-id="22">Setpoint</div></td>
+		 <td><div id="tr_wmin" wfd-id="21">Warn-Min</div></td>
+		 <td><div id="tr_wmax" wfd-id="20">Warn-Max</div></td>
+		 <td><div id="tr_amin" wfd-id="19">Alarm-Min</div></td>
+		 <td><div id="tr_amax" wfd-id="18">Alarm-Max</div></td>
+	</tr>
+
+
+<tr class="col_odd"><td>1</td><td align="left">"Temperature"</td><td align="left"><script>document.write(getHMIValue("HMI.CV[1].Unit"));</script>°C</td><td>   19.6</td><td>   35.0</td><td>  -90.0</td><td>  192.0</td><td>  -90.0</td><td>  192.0</td></tr>
+<tr class="col_even"><td>2</td><td align="left">"Humidity"</td><td align="left"><script>document.write(getHMIValue("HMI.CV[2].Unit"));</script>%</td><td>      0</td><td>     98</td><td>      0</td><td>    100</td><td>      0</td><td>    100</td></tr>
+
+
+</tbody></table>
+
+
+<br>
+<h1><div id="tr_mv" wfd-id="17">Measured Values</div><br></h1>
+
+
+<table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+	<tbody><tr class="col_header">
+		<td> &nbsp;</td>
+		 <td align="left"><div id="tr_name" wfd-id="16">Name</div></td>
+		 <td align="left"><div id="tr_unit" wfd-id="15">Unit</div></td>
+		 <td><div id="tr_act" wfd-id="14">Actual value</div></td>
+		 <td><div id="tr_wmin" wfd-id="13">Warn-Min</div></td>
+		 <td><div id="tr_wmax" wfd-id="12">Warn-Max</div></td>
+		 <td><div id="tr_amin" wfd-id="11">Alarm-Min</div></td>
+		 <td><div id="tr_amax" wfd-id="10">Alarm-Max</div></td>
+	</tr>
+
+<tr><td id="tr_none" colspan="8">none</td></tr>
+
+</tbody></table>
+
+<br>
+<h1><div id="tr_sv" wfd-id="9">Set values</div><br></h1>
+
+<table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+	<tbody><tr class="col_header">
+		<td> &nbsp;</td>
+		 <td align="left"><div id="tr_name" wfd-id="8">Name</div></td>
+		 <td align="left"><div id="tr_unit" wfd-id="7">Unit</div></td>
+		<td>SP</td>
+		<td>SP-Min</td>
+		<td>SP-Max</td>
+	</tr>
+
+<tr class="col_odd"><td>1</td><td align="left">"Option"</td><td align="left"><script>document.write(getHMIValue("HMI.SV[1].Unit"));</script></td><td>  100.0</td><td>   50.0</td><td>  100.0</td></tr>
+<tr class="col_even"><td>2</td><td align="left">"Option"</td><td align="left"><script>document.write(getHMIValue("HMI.SV[2].Unit"));</script></td><td>    5.0</td><td>    0.0</td><td>   30.0</td></tr>
+<tr class="col_odd"><td>3</td><td align="left">"Option"</td><td align="left"><script>document.write(getHMIValue("HMI.SV[3].Unit"));</script></td><td>   15.0</td><td>    2.0</td><td>   30.0</td></tr>
+
+</tbody></table>
+
+<br>
+<h1><div id="tr_do" wfd-id="6">Digital channels</div></h1>
+<table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+	<tbody><tr class="col_header">
+		<td> </td>
+		 <td align="left"><div id="tr_name" wfd-id="5">Name</div></td>
+		 <td><div id="tr_act" wfd-id="4">Actual value</div></td>
+	</tr>
+
+
+<tr class="col_odd"><td>1</td><td align="left">"Custom Out1"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>2</td><td align="left">"Custom Out2"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>3</td><td align="left">"Custom Out3"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>4</td><td align="left">"Custom Out4"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>5</td><td align="left">"Cond.protect"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>6</td><td align="left">"Clarificat."</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>7</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>8</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>9</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>10</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>11</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>12</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>13</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>14</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>15</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>16</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>17</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>18</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>19</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>20</td><td align="left">"Option"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+
+</tbody></table>
+
+<br>
+<h1><div id="tr_di" wfd-id="3">Digital inputs</div></h1>
+<table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+	<tbody><tr class="col_header">
+		<td> </td>
+		 <td align="left"><div id="tr_name" wfd-id="2">Name</div></td>
+		 <td><div id="tr_act" wfd-id="1">Actual value</div></td>
+	</tr>
+
+
+<tr class="col_odd"><td>1</td><td align="left">"Custom In1"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>2</td><td align="left">"Custom In2"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_odd"><td>3</td><td align="left">"Custom In3"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+<tr class="col_even"><td>4</td><td align="left">"Custom In4"</td><td align="left"><img src="./SimPac4_files/off_s.gif" alt="OFF"> </td></tr>
+
+</tbody></table>
+<br>
+
+
+</center><div class="kpm_LTR notranslate" translate="no" id="kpm-root" wfd-id="0"></div></body></html>

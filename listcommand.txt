@@ -1,0 +1,4 @@
+start-record you to the alert list.
+stop-delete you from the alert list.
+status-request the status's climate camera.
+help-about bot's command.

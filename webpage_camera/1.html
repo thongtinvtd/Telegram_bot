@@ -1,0 +1,44 @@
+<html>
+<body>
+    <table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+        <tbody><tr class="col_header">
+             <td> &nbsp;</td>
+             <td align="left"><div id="tr_name" wfd-id="25">Name</div></td>
+             <td align="left"><div id="tr_unit" wfd-id="24">Unit</div></td>
+             <td><div id="tr_act" wfd-id="23">Actual value</div></td>
+             <td><div id="tr_setp" wfd-id="22">Setpoint</div></td>
+             <td><div id="tr_wmin" wfd-id="21">Warn-Min</div></td>
+             <td><div id="tr_wmax" wfd-id="20">Warn-Max</div></td>
+             <td><div id="tr_amin" wfd-id="19">Alarm-Min</div></td>
+             <td><div id="tr_amax" wfd-id="18">Alarm-Max</div></td>
+        </tr>
+    
+    
+    <tr class="col_odd">
+        <td>1</td>
+        <td align="left">"Temperature"</td>
+        <td align="left"><script>document.write(getHMIValue("HMI.CV[1].Unit"));</script>�C</td>
+        <td>   19.6</td>
+        <td>   35.0</td>
+        <td>  -90.0</td>
+        <td>  192.0</td>
+        <td>  -90.0</td>
+        <td>  192.0</td>
+    </tr>
+    <tr class="col_even">
+        <td>2</td>
+        <td align="left">"Humidity"</td>
+        <td align="left"><script>document.write(getHMIValue("HMI.CV[2].Unit"));</script>%</td>
+        <td>      0</td>
+        <td>     98</td>
+        <td>      0</td>
+        <td>    100</td>
+        <td>      0</td>
+        <td>    100</td>
+    </tr>
+    
+    
+    </tbody></table></body>
+
+
+</html>

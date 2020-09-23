@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>SimPac</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+	 <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ejktWf6tpt_t2G79KUJ0Ft92hxtXcvSroycFG_Z74fhGJAh0P5tQ-PcsOo-GP7EfEFQPDvfw3OGaOjiaO92ELKro0LDxXb7gG8nZWr3WMl8" charset="UTF-8"></script><script language="javascript" type="text/javascript" src="../js/jquery.js"></script>
+	 <script language="javascript" type="text/javascript" src="../js/language.js"></script>
+	 <script language="javascript" type="text/javascript" src="../js/header.js"></script>
+	  
+ <link rel="stylesheet" type="text/css" href="../css/c3000style_pda.css" media="handheld">
+ <link rel="stylesheet" type="text/css" href="../css/c3000style.css" media="screen">
+</head>
+
+<div id="header">header</div>
+
+
+<script language="JavaScript">
+
+$.ajaxSetup ({  
+	cache: false  
+});  
+
+
+$('#header').load('../js/header.html', function(){
+	$("img[id='lang']").click(function() {
+		changeLanguage($(this).attr("name"));
+	});
+	
+	getHeaderInfo();
+	getChbInfo();
+
+});
+
+
+$(document).ready(function()
+{
+	
+changeLanguage(1);
+
+	
+});
+
+</script>
+
+<body class="bodyTables">
+
+<center>
+<br>
+<h1><div id="tr_mstitle">tr_mstitle</div></h1>
+<br>
+		
+<table class="C3kTables" border="1" cellpadding="2" cellspacing="0" width="90%">
+	<tr class="col_header">
+		<td>&nbsp;</td>
+		<td align="left"><div id="tr_name">tr_name</div></td>
+		<td><div id="tr_active">tr_active</div></td>
+		<td><div id="tr_coltype">tr_coltype</div><span style="font-size:x-small">1=Alarm, 2=Warning, 4=Info</span></td>
+	</tr>
+
+
+
+
+<tr>
+	<td> </td>
+	<td><div id="tr_msquit">tr_msquit</div></td>
+	<td>
+		<form action="c3k_warn.plc" method=get>
+			<input type=hidden name="tag_value" value="1">
+			<input type=hidden name="tag_name" value="HMI.MS_QuitAll">
+			<input type="submit" value="QUIT">
+		</form>
+	</td>
+	<td> </td>
+</tr>
+</table>
+</center>
+
+</body>
+<br>
+<center>
+<h1><tt><a href="c3k_warn.plc"><div id="tr_reload">tr_reload</div></a></tt></h1>
+</center>
+</html>

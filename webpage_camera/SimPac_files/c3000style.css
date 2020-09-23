@@ -1,0 +1,103 @@
+/*--- Standard ---*/
+body        {font-family:monospace; font-size:8pt; background-color:#FFFFFF; color:#000000;margin-left: 0px;margin-top: 0px;margin-right: 0px;margin-bottom: 0px;}
+
+
+#Uhr { top:10px; left:10px; }
+.Uhr { font-family:Courier New; font-size:24px; color:darkblue; }
+
+#Datum { top:10px; left:10px; }
+.Datum { font-family:Courier New; font-size:24px; color:darkblue; }
+
+.header { background-color: white; margin-top:0px; margin-bottom:0px;  background-image: url('../image/c3k_bg.gif'); background-repeat: repeat-x;  width:100%}
+
+	.HeadLine {font-weight: bold;	color: #999999;	margin-left: 10px;  align:left; vertical-align:middle; height:60px}
+
+td  {vertical-align: middle; }
+tr  {vertical-align: middle; }
+
+.bar {
+    background-image: url(../image/bar.gif);  
+    background-repeat: repeat-x ; 
+    white-space:nowrap; 
+    }
+
+.bar_warn {
+    background-image: url(../image/bar_warn.gif);  
+    background-repeat: repeat-x ; 
+/*    border-left: 2px dashed gray;*/
+    }
+    
+.bar_alarm {
+    background-image: url(../image/bar_alarm.gif);  
+    background-repeat: repeat-x ; 
+    }
+
+
+
+input#submit { /* den Submit-Button */
+  float: none;
+  width: auto; 
+}
+
+input#red {  
+    background-color: #ffeeff/* den Submit-Button */
+  
+}
+.iotest {color:#FFF00; background-color:yellow}
+.buttonrot {color:#FFF00; background-color:red}
+.buttongelb {color:#FFF00; background-color:yellow}
+.buttonblau {color:#FFF00; background-color:#00CCFF}
+.buttongruen {color:#FFF00; background-color:lime}
+.bodyTables {     background-color: #EDECFF }
+ .c3kTables { font-family: monospace; vertical-align: middle ; text-align: left;  font-size: large; 
+    font-weight: bold}
+
+.col_header {color:#FFFFFF; background-color:#001287; 
+    border-top-width: thick}
+.col_even  {color:#000000; background-color:#dadaff}
+.col_odd {color:#000000; background-color:#ffffff}
+
+.col_alarm {color:#FFFFFF ; background-color:red}
+.col_alarm_odd {color:#000000 ; background-color: #FFC8C8}
+
+.col_warn {color:#000000 ; background-color:yellow}
+.col_warn_odd {color:#000000 ; background-color: #F5F5B4}
+
+.col_hint {color:#FFFFFF  ; background-color: gray}
+.col_hint_odd {color:#000000 ; background-color: #B4B4B4}
+
+
+
+p           {font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;	font-size:12pt;	color:#000000;}
+td,th       {font-size:12pt; margin-left:0px;}
+ul          {font-size:12pt; margin:1em 0; padding-left:15px; margin-top:0px; margin-bottom:0px; display:block}
+li          {font-size:12pt;}
+
+/*--- Headlines ---*/
+h1,h2,h3,h4,
+h5,h6       {font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif; font-weight:bold; color:#999999;}
+h1          {font-family: monospace; vertical-align: middle ; font-size:12pt; margin-bottom:0px;margin-top:0px; color:#001287}
+h2          {font-size:10pt; margin-top:0px; margin-bottom:0px; color:#001287}
+h3          {font-size:8pt; margin-top:0px; margin-bottom:0px}
+h4          {font-size:12pt; margin-top:0px; margin-bottom:0px;}
+h5          {font-size:12pt;  margin-top:0px; margin-bottom:0px;}
+h6          {font-size:12pt;  margin-top:0px; margin-bottom:0px;}
+
+/*--- Links --- */
+a:link      {color:#000000; font-weight:normal; text-decoration:underline;}
+a:visited   {color:#000000; font-weight:normal; text-decoration:underline;}
+a:hover     {color:#000000; font-weight:normal; text-decoration:underline;}
+a:active    {color:#000000; font-weight:normal; text-decoration:underline;}
+
+/*--- Navigation ----*/
+#menu           {background-color:#EEEEEE;}
+#menu a:link    {color:#006699; font-weight:bold; text-decoration:underline;}
+#menu a:visited {color:#006699; font-weight:bold; text-decoration:underline;}
+#menu a:hover   {color:#AAAAAA; font-weight:bold; text-decoration:underline;}
+#menu a:active  {color:#006699; font-weight:bold; text-decoration:underline;}
+
+/*--- Special areas ---*/
+.copyright  {font-size:80%; color:#000000; margin-top:0px;}
+
+/*--- Table format ---*/
+table			{border-collapse:collapse;}

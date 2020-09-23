@@ -1,13 +1,13 @@
 {
-    "update_id": 523185688,
+    "update_id": 523185708,
     "message": {
-        "message_id": 82,
+        "message_id": 122,
         "from": {
             "id": 1343733841,
             "is_bot": false,
             "first_name": "nguyen van trung",
             "username": "vantrung",
-            "language_code": "ru"
+            "language_code": "en"
         },
         "chat": {
             "id": 1343733841,
@@ -15,7 +15,7 @@
             "username": "vantrung",
             "type": "private"
         },
-        "date": 1599717341,
+        "date": 1599815191,
         "text": "/start",
         "entities": [
             {

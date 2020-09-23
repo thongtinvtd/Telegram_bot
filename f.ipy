@@ -1,0 +1,14 @@
+# coding: utf-8
+import requests
+import lxml.html as html
+    
+#with open('/home/huy/Desktop/tem.html', 'rb') as f:
+#    content_html = f.read()
+
+r = requests.get('https://google.com')
+content_html = r.content
+
+tree = html.fromstring(content_html)
+trs = tree.cssselect('tr.col_odd')
+tds_of_first_row = trs[0].cssselect('td')
+tds_of_first_row[3].text
